@@ -1,9 +1,9 @@
 # Employee Tracker
 
 ## My task
-```md
+
 Developers are often tasked with creating interfaces that make it easy for non-developers to view and interact with information stored in databases. These interfaces are known as Content Management Systems (CMS). Your challenge this week is to build a command-line application to manage a company's database of employees using Node.js, Inquirer, and MySQL.
-```
+
 
 ## User Story
 ```md
