@@ -40,13 +40,13 @@ const choice = [
         type: 'list',
         name: 'Pick',
         message: 'Choose one of the following options: ',
-        choices: ['View all Departments', 'View all roles', 'View all employees', 'Add a department', 'Add a role', 'Add an employee', 'Update an employee role']
+        choices: ['View all departments', 'View all roles', 'View all employees', 'Add a department', 'Add a role', 'Add an employee', 'Update an employee role']
 
     },
 ];
 
 // Function to connect to the index file
-init => {
+connection(init => {
     inquirer.prompt(choice)
     .then((answers) => {
         return functions (answers);
@@ -54,5 +54,5 @@ init => {
     .catch((error) => {
         console.log(error);
     })
-}
+})
     
