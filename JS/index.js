@@ -1,28 +1,36 @@
 //  Here is where all the functions will be executed
 const mysql = require('mysql2');
+const connection = require('./connection');
+const connect = require('./connection');
+
+// Create class for database
+
 
 switch (functions) {
     case 'View all departments':
-        return mysql.query(
-            "SELECT * FROM departments"
-        )
+        connect.query
+        ("SELECT * FROM departments")
         break;
     case 'View all roles':
-        return("SELECT title FROM roles, JOIN department_name FROM departments ");
+        ("SELECT title FROM roles, JOIN department_name FROM departments ");
         break;
     case 'View all employees':
-        return("SELECT * FROM EMPLOYEES, ");
+        ("SELECT * FROM EMPLOYEES, ");
         break;
     case 'Add a department':
-        return("INSERT INTO departments(department_name");
+        ("INSERT INTO departments(department_name");
         break;
     case 'Add a role':
-        return("INSERT INTO roles(title, salary, department_id");
+        ("INSERT INTO roles(title, salary, department_id)")
+        ("VALUES (?, ?)");
         break;
     case 'Add an employee':
-        return("INSERT INTO employee(first_name, last_name, role_id, manager_id");
+        ("INSERT INTO employee(first_name, last_name, role_id, manager_id)")
+        ("VALUES (?, ?, ?, ?)");
         break;
     case 'Update an employee role':
-        return("");
+        ("");
         break;
 }
+
+module.exports = connection;
