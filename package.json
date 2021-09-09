@@ -1,0 +1,22 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sirmaaalik/Employee-Tracker.git"
+  },
+  "author": "Malik Harris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sirmaaalik/Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/Sirmaaalik/Employee-Tracker#readme",
+  "dependencies": {
+    "console.table": "^0.10.0"
+  }
+}

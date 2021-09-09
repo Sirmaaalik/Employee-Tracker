@@ -4,7 +4,7 @@ const mysql = require('mysql2');
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
+    password: '@SQL4life',
     database: 'tracker_db'
   },
     console.log("Tracker sql database found!")
