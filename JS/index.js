@@ -12,7 +12,19 @@ class Database {
         return connection.promise().query (
             'SELECT * FROM departments;'
         );
-    };
+    }
+    getAllRoles (){
+        return connection.promise().query (
+            'SELECT * FROM roles;'
+        );
+    }
+    getAllEmployees (){
+        return connection.promise().query (
+            'SELECT * FROM employees ;'
+        );
+    }
+
+
     async deleteDepartment (departmentArray){
         let answers = await inquirer.prompt([
             {
@@ -28,6 +40,5 @@ class Database {
             return deleteDetP;
     }
 };
-
 
 module.exports = Database;

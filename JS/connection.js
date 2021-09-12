@@ -8,6 +8,6 @@ const connection = mysql.createConnection({
     database: 'tracker_db'
   },
     console.log("Tracker sql database found!")
-  );
+);
 
   module.exports = connection;

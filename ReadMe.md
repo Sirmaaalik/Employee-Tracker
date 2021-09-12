@@ -1,4 +1,7 @@
-# Employee Tracker (Project 12)
+# Employee Tracker
+```md
+Project 12
+```
 
 ## My task
 
