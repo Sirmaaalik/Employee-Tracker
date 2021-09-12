@@ -1,13 +1,4 @@
-## To-do list
-```md
-1. Finish the questions.  Make a switch case and have those cases track to the functions (server or funstions js) and proceed from there.
-
-2. Fnish writing all the functions out to connect to the questions.  Check project readme gen. if you have to.
-
-3. Once you passed these two, you might have to ask for help to help tie everything together and run.
-```
-
-# Employee Tracker
+# Employee Tracker (Project 12)
 
 ## My task
 
