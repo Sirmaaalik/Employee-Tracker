@@ -8,6 +8,7 @@ const inquirer = require('inquirer');
 const connection = require('./connection');
 
 class Database {
+    // Viewing section
     getAllDepartments (){
         return connection.promise().query (
             'SELECT * FROM departments;'
@@ -20,11 +21,63 @@ class Database {
     }
     getAllEmployees (){
         return connection.promise().query (
-            'SELECT * FROM employees ;'
+            'SELECT * FROM employees;'
         );
     }
 
+    // Adding section
+    async addDepartment (departmentArray){
+        let answers = await inquirer.prompt([
+            {
+                type: 'input',
+                name: 'empty',
+                message: 'Name of department: ',
+            }
+        ]);
+        let addDep = await connection.promise().query (
+            'INSERT INTO departments(department_name) VALUES (?)', [answers.empty]
+            );
+            return addDep;
+    }
+    async addRole (departmentArray){
+        let answers = await inquirer.prompt([
+            {
+                type: 'input',
+                name: 'empty',
+                message: 'Title for role: '
+            },
+            {
+                type: 'input',
+                name: 'empty',
+                message: 'Salary amount: '
+            },
+            {
+                type: 'list',
+                name: 'empty',
+                message: 'Department ID:',
+                choices: departmentArray
+            }
+        ]);
+        let addRo = await connection.promise().query (
+            'INSERT INTO roles(title, salary, department_id) VALUES (?, ?, ?)', [answers.empty]
+            );
+            return addRo;
+    }
+    async addDepartment (departmentArray){
+        let answers = await inquirer.prompt([
+            {
+                type: 'input',
+                name: 'empty',
+                message: 'Name of department: ',
+            }
+        ]);
+        let addDep = await connection.promise().query (
+            'INSERT INTO departments(department_name) VALUES (?)', [answers.empty]
+            );
+            return addDep;
+    }
 
+    // Delete needs fixing
     async deleteDepartment (departmentArray){
         let answers = await inquirer.prompt([
             {
