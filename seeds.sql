@@ -10,5 +10,5 @@ VALUES ("Management", 90000, 1),
 
 
 INSERT INTO employees(first_name, last_name, role_id, manager_id)
-VALUES ("Malik", "Harris", 1, 1 ),
-("Xavier", "Harris", 2, 2 );
+VALUES ("Malik", "Harris", 1, null ),
+("Xavier", "Harris", 2, null );

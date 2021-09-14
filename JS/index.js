@@ -26,20 +26,21 @@ class Database {
     }
 
     // Adding section
-    async addDepartment (departmentArray){
+    async addDepartment (){
         let answers = await inquirer.prompt([
             {
                 type: 'input',
-                name: 'empty',
+                name: 'department',
                 message: 'Name of department: ',
             }
         ]);
         let addDep = await connection.promise().query (
-            'INSERT INTO departments(department_name) VALUES (?)', [answers.empty]
+            'INSERT INTO departments(department_name) VALUES (?)',
+            [answers.department]
             );
             return addDep;
     }
-    async addRole (departmentArray){
+    async addRole (roleArray){
         return inquirer.prompt([
             {
                 type: 'input',
@@ -54,28 +55,48 @@ class Database {
             {
                 type: 'list',
                 name: 'ID',
-                message: 'Department ID:',
-                choices: departmentArray
+                message: 'Department: ',
+                choices: roleArray
             }
         ]).then(async (answers) => {
             let addRo = await connection.promise().query (
-                'INSERT INTO roles(title, salary, department_id) VALUES (?, ?, ?)', [answers.title, answers.salary, answers.ID]
+                'INSERT INTO roles(title, salary, department_id) VALUES (?, ?, ?)',
+                [answers.title, answers.salary, answers.ID]
                 );
                 return addRo;
         })
     }
-    async addEmployees (departmentArray){
-        let answers = await inquirer.prompt([
+    async addEmployee (employeeArray){
+        return inquirer.prompt([
             {
                 type: 'input',
-                name: 'empty',
-                message: 'Name of department: ',
+                name: 'first',
+                message: 'First name: '
+            },
+            {
+                type: 'input',
+                name: 'last',
+                message: 'Last name: '
+            },
+            {
+                type: 'list',
+                name: 'role',
+                message: 'Employee role: ',
+                choices: employeeArray
+            },
+            {
+                type: 'list',
+                name: 'manager',
+                message: 'Manager: ',
+                choices: employeeArray
             }
-        ]);
-        let addDep = await connection.promise().query (
-            'INSERT INTO departments(department_name) VALUES (?)', [answers.empty]
-            );
-            return addDep;
+        ]).then(async (answers) => {
+            let addEmploy = await connection.promise().query (
+                'INSERT INTO employees(first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)',
+                [answers.first, answers.last, answers.role, answers.manager]
+                );
+                return addEmploy;
+        })
     }
 
     //SET TITLE = 'JUNE' WHERE id = 3
