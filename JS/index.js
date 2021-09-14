@@ -40,30 +40,31 @@ class Database {
             return addDep;
     }
     async addRole (departmentArray){
-        let answers = await inquirer.prompt([
+        return inquirer.prompt([
             {
                 type: 'input',
-                name: 'empty',
+                name: 'title',
                 message: 'Title for role: '
             },
             {
                 type: 'input',
-                name: 'empty',
+                name: 'salary',
                 message: 'Salary amount: '
             },
             {
                 type: 'list',
-                name: 'empty',
+                name: 'ID',
                 message: 'Department ID:',
                 choices: departmentArray
             }
-        ]);
-        let addRo = await connection.promise().query (
-            'INSERT INTO roles(title, salary, department_id) VALUES (?, ?, ?)', [answers.empty]
-            );
-            return addRo;
+        ]).then(async (answers) => {
+            let addRo = await connection.promise().query (
+                'INSERT INTO roles(title, salary, department_id) VALUES (?, ?, ?)', [answers.title, answers.salary, answers.ID]
+                );
+                return addRo;
+        })
     }
-    async addDepartment (departmentArray){
+    async addEmployees (departmentArray){
         let answers = await inquirer.prompt([
             {
                 type: 'input',
@@ -76,6 +77,9 @@ class Database {
             );
             return addDep;
     }
+
+    //SET TITLE = 'JUNE' WHERE id = 3
+    //
 
     // Delete needs fixing
     async deleteDepartment (departmentArray){

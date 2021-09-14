@@ -72,8 +72,8 @@ function init()  {inquirer.prompt([
                         init();
                     })
                 case 'Add a role':
-                    return db.addRole(departmentArray).then(([rows])=> {
-                        console.table(rows);
+                    return db.addRole(departmentArray).then((res) => {
+                        console.log('Successfully added the role.');
                         init();
                     })
                 case 'Add an employee':
